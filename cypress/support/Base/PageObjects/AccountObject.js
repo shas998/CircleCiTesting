@@ -1,0 +1,30 @@
+const AccountPage = {
+  accountTitleId: 'h3.data_title',
+  searchFieldId: '#search_text',
+  searchIcon: 'button i.fa.fa-search',
+  tableRowId: '.table tbody tr',
+  newButton: 'a.btn-success',
+  accountName: '#account_name',
+  accountLicenseDate: '#account_licensed_date',
+  saveButton: 'input[name="commit"]',
+  sucessAlertId: '.alert-success',
+  validationMessage: 'div.alert-danger',
+  lockedCheckbox: '#account_locked',
+  accountLink: '.table tbody tr td a',
+  editButton: '.container-fluid a i.fa-pencil',
+  deleteButton: '.container-fluid a i.fa-trash',
+  cancelButton: '.form-group a.btn.border',
+  exportStatisticButton: 'a.btn-outline-dark',
+  invalidFeedbackId: '.invalid-feedback',
+  inputFileField: 'input[type="file"]',
+  logoImageId: '#body-container img',
+  imageCloseIconId: '.img-wrap .close',
+  statusDropdownId: '#account_status',
+  inactiveAccountCheckboxId: '#inactive_items',
+  spiClientCheckboxId: '#account_spi_client',
+  authenticationPasswordInputId: '#current_password',
+  summitAuthenticationPasswordId: '#submit-password-auth',
+};
+
+// export the users you created so you can import them in your tests
+export { AccountPage};

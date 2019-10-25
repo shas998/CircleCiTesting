@@ -1,0 +1,13 @@
+import './Pages/LoginPage';
+import './Pages/AccountPage';
+import './Utils/Utils';
+import './Pages/UserPage';
+import './Pages/SalesPage';
+import './Pages/AssessmentPage';
+import './Pages/AssessmentPeriodPage';
+import './Pages/UserCollectionPage';
+import './Pages/TerritoriesPage';
+import './Pages/BusinessUnitPage';
+import './Pages/UserOrgChartPage';
+import './Pages/ViewTemplatePage';
+import './Pages/LearningPage';

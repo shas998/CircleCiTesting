@@ -1,0 +1,31 @@
+const AssessmentData = {
+	assessmentTitleText: 'Knowledge Assessment',
+	behaviourAssessmentTitleText: 'Behavior Assessment',
+	newAssessmentSuccessMessage: 'Knowledge Assessment was successfully created.',
+	newBehaviorAssessmentSuccessMessage: 'Behavior Assessment was successfully created.',
+	deleteAssessmentSuccessMessage: 'Knowledge Assessment was successfully deleted.',
+	deleteBehaviorAssessmentSuccessMessage: 'Behavior Assessment was successfully deleted.',
+	upadtedAssessmentSuccessMessage: 'Knowledge Assessment was successfully updated.',
+	upadtedBehaviorAssessmentSuccessMessage: 'Behavior Assessment was successfully updated.',
+	assessmentUserCollectionSuccessMessage: 'Assessment User Collection was successfully created.',
+	updatedAssessmentUserCollectionSuccessMessage: 'Assessment User Collection was successfully updated.',
+	deletedAssessmentUserCollectionSuccessMessage: 'Assessment User Collection was successfully deleted.',
+	knowledgeQuestionText: 'Translations',
+	assessmentItemSucessMessage: 'Knowledge Assessment Item was successfully updated.',
+	behaviorAssessmentItemSucessMessage: 'Behavior was successfully updated.',
+	assessmentItemDeleteSuccessMessage: 'Knowledge Assessment Item translation was successfully deleted.',
+	behaviorAssessmentItemDeleteSuccessMessage: 'Behavior Assessment Item translation was successfully deleted.',
+	validationMessageForAllBlankFieldInAssessment: 'Error saving knowledge assessment: ["Sales role can\'t be blank", "Name can\'t be blank", "Assessment period can\'t be blank"]',
+	validationMessageForAllBlankFieldInBehaviorAssessment: 'Error saving behavior assessment: ["Sales role can\'t be blank", "Name can\'t be blank", "Assessment period can\'t be blank"]',
+	validationMessageForOtherTwoRemainingField: 'Error saving knowledge assessment: ["Sales role can\'t be blank", "Assessment period can\'t be blank"]',
+	validationMessageForBehaviorAssessmentOfOtherTwoRemainingField: 'Error saving behavior assessment: ["Sales role can\'t be blank", "Assessment period can\'t be blank"]',
+	validationMessageForOtherOneRemainingField: 'Error saving knowledge assessment: ["Assessment period can\'t be blank"]',
+	validationMessageForBehaviorAssessmentOfOtherOneRemainingField: 'Error saving behavior assessment: ["Assessment period can\'t be blank"]',
+	validationMessageForAllBlankFieldInAssessmentUserCollection: 'Error saving in assessment user collection: ["User collection must exist", "User collection can\'t be blank", "Active date can\'t be blank", "Due date can\'t be blank", "Assessment and user collection should be in same account"]',
+	validationMessageForAllBlankFieldInBehaviorAssessmentUserCollection: 'Error saving in assessment user collection: ["User collection must exist", "User collection can\'t be blank", "Active date can\'t be blank", "Due date can\'t be blank", "Assessment and user collection should be in same account"]',
+	validationMessageForActiveAndDueDate: 'Error saving in assessment user collection: ["Active date can\'t be blank", "Due date can\'t be blank"]',
+	validationMessageForDueDate: 'Error saving in assessment user collection: ["Due date can\'t be blank"]',
+};
+
+// export the users you created so you can import them in your tests
+export { AssessmentData};

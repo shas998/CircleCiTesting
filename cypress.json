@@ -1,0 +1,19 @@
+{
+  "baseUrl": "https://dev.platform.spisales.com",
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "overwrite": false,
+    "html": true,
+    "json": false
+  },
+  "video": true,
+  "numTestsKeptInMemory": 0,
+  "defaultCommandTimeout": 50000,
+  "execTimeout": 50000,
+  "chromeWebSecurity": false,
+  "failOnStatusCode": false,
+  "requestTimeout": 90000,
+  "pageLoadTimeout": 180000,
+  "responseTimeout": 90000,
+  "projectId": "8yw6dv"
+}
