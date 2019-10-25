@@ -1,0 +1,117 @@
+defaults: &defaults
+  working_directory: ~/app
+  docker:
+    - image: cypress/browsers:chrome67
+
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      # find compatible cache from previous build,
+      # it should have same dependencies installed from package.json checksum
+      - restore_cache:
+          keys:
+            - cache-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: npm ci
+      # run verify and then save cache.
+      # this ensures that the Cypress verified status is cached too
+      - run: npm run cy:verify
+      # save new cache folder if needed
+      - save_cache:
+          key: cache-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+      # all other test jobs will run AFTER this build job finishes
+      # to avoid reinstalling dependencies, we persist the source folder "app"
+      # and the Cypress binary to workspace, which is the fastest way
+      # for Circle jobs to pass files
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - app
+            - .cache/Cypress
+
+  1x-electron:
+    <<: *defaults
+    steps:
+      # restore application and Cypress binary before running the test command
+      - attach_workspace:
+          at: ~/
+      # run all tests and pass group name (should be "1x-electron" in this case)
+      - run: npm run backend:test
+      
+  2x-electron:
+    <<: *defaults
+    steps:
+      # restore application and Cypress binary before running the test command
+      - attach_workspace:
+          at: ~/
+      # run all tests and pass group name (should be "2x-electron" in this case)
+      - run: npm run e2e:test
+      
+  3x-electron:
+    <<: *defaults
+    steps:
+      # restore application and Cypress binary before running the test command
+      - attach_workspace:
+          at: ~/
+      # run all tests and pass group name (should be "3x-electron" in this case)
+      - run: npm run frontend:test
+
+workflows:
+  version: 2
+  schedule_build:
+    triggers:
+      - schedule:
+          cron: "30 22 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
+      - 1x-electron:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - 2x-electron:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - 3x-electron:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
+  build_and_test:
+    jobs:
+      - build
+      - 1x-electron:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - 2x-electron:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - 3x-electron:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
